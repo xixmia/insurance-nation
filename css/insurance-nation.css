@@ -58,7 +58,7 @@ h6 {
   line-height: 18px;
   font-weight: 700;
 }
-p {
+p, ul, li {
   margin-bottom: 5px;
   padding-right: 0px;
   padding-left: 0px;
@@ -113,6 +113,7 @@ a.w--current {
 }
 .button.home-cta:hover {
   background-color: #3892ff;
+	color:#FFF;
 }
 .button.home-cta.w--open {
   margin-right: 0px;
@@ -145,7 +146,7 @@ a.w--current {
   z-index: 10;
 }
 .button.home-cta.payment.top {
-  z-index: 9000;
+  z-index: 900;
 }
 .navbar {
   position: fixed;
@@ -214,6 +215,22 @@ a.w--current {
   background-position: 0px 0px, 100% 0%;
   background-size: auto, cover;
 }
+
+.hero.page-hero.rent {
+  height: auto;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/rentersins.jpg');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/rentersins.jpg');
+  background-position: 0px 0px, 100% 0%;
+  background-size: auto, cover;
+}
+
+.hero.page-hero.prof-liability {
+  height: auto;
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/Fotolia_86612305_Subscription_Monthly_M.jpg');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/Fotolia_86612305_Subscription_Monthly_M.jpg');
+  background-position: 0px 0px, 100% 0%;
+  background-size: auto, cover;
+}
 .hero.page-hero.boat-rv {
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/boat-rv-motor.jpg');
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/boat-rv-motor.jpg');
@@ -237,7 +254,7 @@ a.w--current {
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/Fotolia_86612305_Subscription_Monthly_M.jpg');
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/Fotolia_86612305_Subscription_Monthly_M.jpg');
   background-position: 0px 0px, 50% 50%;
-  background-size: auto, auto;
+  background-size: cover;
 }
 .hero.page-hero.health {
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0)), url('../images/Fotolia_86339288_Subscription_Monthly_M.jpg');
@@ -406,12 +423,15 @@ a.w--current {
   background-repeat: repeat, no-repeat;
 }
 .nav-menu {
+  top: 90px;
+  right: 0px;
+  display: block;
   background-color: #2185ff;
 }
 .nav-link {
   display: block;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   padding-left: 50px;
   -webkit-transition: all 500ms ease;
   transition: all 500ms ease;
@@ -584,7 +604,8 @@ a.w--current {
 }
 .logo {
   display: block;
-  margin-top: 15px;
+  height: 75px;
+  margin-top: 8px;
   margin-left: 20px;
   text-align: center;
 }
@@ -755,6 +776,12 @@ a.w--current {
   text-align: center;
   text-shadow: black 0px 1px 10px;
 }
+
+.landing-ul {
+    color: #fcfcfc;
+    text-align: center;
+    text-shadow: black 0px 1px 10px;
+}
 .landing-copy.contact-pg {
   color: white;
   text-shadow: none;
@@ -768,7 +795,6 @@ a.w--current {
 }
 .open-dropdown.w--open {
   display: block;
-  overflow-x: scroll;
   overflow-y: scroll;
   max-height: 250px;
   margin-right: auto;
@@ -776,6 +802,7 @@ a.w--current {
   background-color: #2185ff;
 }
 .dropdown {
+  z-index: 100;
   margin-right: 20px;
 }
 .dropdown.paymenty {
@@ -789,6 +816,9 @@ a.w--current {
 }
 .dropdown.paymenty.bottom {
   z-index: 10;
+}
+.dropdown.top {
+  z-index: 900;
 }
 .dropdown-link {
   background-color: #2185ff;
@@ -898,6 +928,7 @@ a.w--current {
   text-transform: uppercase;
 }
 .guarantee-card {
+  min-height: 475px;
   padding: 0px;
   border: 1px solid rgba(0, 0, 0, 0.09);
   background-color: white;
@@ -964,24 +995,14 @@ a.w--current {
   float: right;
 }
 .social-btns.nav {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  padding-right: 4px;
 }
 .social-btns.collapse {
   display: none;
 }
 .social-icons {
-  width: auto;
+  width: 90px;
   height: 90px;
-  -webkit-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-.social-icons:hover {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  -webkit-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
 }
 .phone {
   display: inline-block;
@@ -1006,7 +1027,9 @@ a.w--current {
 }
 .hero-subhead {
   border-bottom: 1px none black;
+  font-family: Lato, sans-serif;
   color: white;
+  font-weight: 300;
   text-align: center;
   text-shadow: black 1px 1px 6px;
 }
@@ -1044,9 +1067,8 @@ a.w--current {
   background-color: rgba(0, 0, 0, 0.2);
 }
 .claims-cont {
-  margin-top: 35px;
-  padding-top: 15px;
-  padding-bottom: 20px;
+  margin: 35px 0 35px;
+  padding: 15px 0 20px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 .date-said {
@@ -1066,6 +1088,7 @@ a.w--current {
   box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 25px 0px;
 }
 .offer-cont {
+  min-height: 322px;
   padding: 0px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 25px 0px;
@@ -1091,6 +1114,9 @@ a.w--current {
 }
 .loc-headers {
   font-size: 16px;
+}
+.phonelink {
+  text-decoration: underline;
 }
 html.w-mod-js *[data-ix="opacity"] {
   opacity: 0;
@@ -1124,6 +1150,11 @@ html.w-mod-js *[data-ix="opacity"] {
   }
   .section.career {
     padding-top: 0px;
+  }
+  .logo {
+    height: 65px;
+    margin-top: 10px;
+    margin-left: 10px;
   }
   .service-img {
     margin-bottom: 10px;
@@ -1226,12 +1257,28 @@ html.w-mod-js *[data-ix="opacity"] {
     margin: 15px;
     clear: right;
   }
+  .phonelink.tablet {
+    color: #f2f2f2;
+    text-decoration: underline;
+  }
+  .phonelink.tablet:hover {
+    color: white;
+  }
 }
 @media (max-width: 767px) {
+  body {
+    padding-top: 75px;
+  }
   .button.home-cta {
     display: block;
     margin-right: auto;
     margin-left: auto;
+  }
+  .navbar {
+    height: 75px;
+  }
+  .menu {
+    padding-top: 23px;
   }
   .hero.page-hero.customer-pg.contact {
     background-position: 0px 0px, 50% 0px;
@@ -1266,6 +1313,15 @@ html.w-mod-js *[data-ix="opacity"] {
   .silde.motor-insurance.home-pg {
     background-position: 0px 0px, 50% 50%;
   }
+  .nav-menu {
+    top: 75px;
+  }
+  .nav-link {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 18px;
+  }
   .content-area {
     padding-right: 50px;
     padding-left: 50px;
@@ -1288,6 +1344,10 @@ html.w-mod-js *[data-ix="opacity"] {
   .section.image-bg {
     background-image: -webkit-linear-gradient(180deg, rgba(255, 255, 255, 0.49), white 66%), url('../images/desk.jpg');
     background-image: linear-gradient(270deg, rgba(255, 255, 255, 0.49), white 66%), url('../images/desk.jpg');
+  }
+  .logo {
+    height: 55px;
+    margin-top: 15px;
   }
   .content-wrapper.sub-footer {
     margin-top: 20px;
@@ -1336,10 +1396,20 @@ html.w-mod-js *[data-ix="opacity"] {
   }
   .social-btns.collapse {
     display: inline-block;
+    height: auto;
     float: left;
   }
+  .social-icons {
+    width: 45px;
+    height: 45px;
+  }
+  .phone.collapse {
+    height: auto;
+  }
   .call-number.collapse {
+    padding-top: 10px;
     padding-right: 25px;
+    font-size: 20px;
   }
   .career-content {
     padding-top: 25px;
@@ -1358,8 +1428,18 @@ html.w-mod-js *[data-ix="opacity"] {
   .location {
     width: 40%;
   }
+  .phonelink {
+    color: white;
+  }
+  .phonelink:hover {
+    color: white;
+    text-decoration: underline;
+  }
 }
 @media (max-width: 479px) {
+  body {
+    padding-top: 70px;
+  }
   h1 {
     text-align: center;
   }
@@ -1381,15 +1461,23 @@ html.w-mod-js *[data-ix="opacity"] {
     margin: 10px 0%;
     float: none;
   }
+  .navbar {
+    height: 70px;
+  }
   .menu {
-    width: 125px;
+    width: 100px;
+    padding-top: 20px;
     padding-right: 0px;
-    padding-left: 20px;
+    padding-left: 10px;
   }
   .menu.w--open {
-    width: 125px;
+    width: 100px;
+    padding-top: 23px;
     padding-right: 0px;
-    padding-left: 20px;
+    padding-left: 10px;
+  }
+  .hambrgr {
+    font-size: 26px;
   }
   .hero {
     height: 450px;
@@ -1404,6 +1492,10 @@ html.w-mod-js *[data-ix="opacity"] {
   .hero.blog {
     height: auto;
   }
+  .text-menu {
+    bottom: 6px;
+    font-size: 16px;
+  }
   .silde.motor-insurance.home-pg {
     background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.6) 100%, rgba(255, 255, 255, 0)), url('../images/Fotolia_85600064_Subscription_Monthly_M.jpg');
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6) 100%, rgba(255, 255, 255, 0)), url('../images/Fotolia_85600064_Subscription_Monthly_M.jpg');
@@ -1417,6 +1509,16 @@ html.w-mod-js *[data-ix="opacity"] {
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
     background-repeat: repeat, no-repeat;
+  }
+  .nav-menu {
+    top: 70px;
+  }
+  .nav-link {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-size: 16px;
+    line-height: 18px;
   }
   .content-area {
     top: 8%;
@@ -1456,8 +1558,8 @@ html.w-mod-js *[data-ix="opacity"] {
     width: 35px;
   }
   .logo {
-    width: 180px;
-    margin-top: 22px;
+    height: 43px;
+    margin-top: 13px;
     margin-left: 5px;
     float: left;
   }
@@ -1482,7 +1584,7 @@ html.w-mod-js *[data-ix="opacity"] {
     padding-bottom: 50px;
   }
   .dropdown {
-    z-index: 800;
+    z-index: 0;
     margin-right: 0px;
     float: none;
   }
@@ -1531,18 +1633,29 @@ html.w-mod-js *[data-ix="opacity"] {
   }
   .social-btns.collapse {
     display: inline-block;
+    height: auto;
     margin-right: auto;
     margin-left: auto;
-    float: none;
+    float: right;
+  }
+  .social-icons {
+    width: 44px;
+    height: 44px;
   }
   .phone.collapse {
-    float: none;
+    display: inline-block;
+    height: auto;
+    float: left;
   }
   .call-number.collapse {
     display: block;
     margin-right: auto;
     margin-left: auto;
+    padding-top: 10px;
     padding-right: 0px;
+    padding-bottom: 10px;
+    float: left;
+    font-size: 17px;
     text-align: center;
   }
   .location {
@@ -1550,3 +1663,10 @@ html.w-mod-js *[data-ix="opacity"] {
   }
 }
 
+
+.ul-col {
+    display: inline;
+    float: left;
+    margin-right: 25px;
+    list-style: none;
+}

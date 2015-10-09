@@ -758,7 +758,7 @@
 	    window.WebflowEditor = true;
 	    $win.off(hashchange, checkHash);
 	    $.ajax({
-	      url: cleanSlashes(("https://webflow.com") + '/api/editor/view'),
+	      url: cleanSlashes(("https://editor-api.webflow.com") + '/api/editor/view'),
 	      xhrFields: { withCredentials: true },
 	      dataType: 'json',
 	      crossDomain: true,
@@ -786,7 +786,7 @@
 	  }
 
 	  function prefix(url) {
-	    return (url.indexOf('//') >= 0) ? url : cleanSlashes(("https://webflow.com") + url);
+	    return (url.indexOf('//') >= 0) ? url : cleanSlashes(("https://editor-api.webflow.com") + url);
 	  }
 
 	  function cleanSlashes(url) {
