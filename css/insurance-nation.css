@@ -22,8 +22,7 @@ h2 {
   margin-top: 20px;
   margin-bottom: 10px;
   font-family: Lato, sans-serif;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 32px;line-height: 36px;
   font-weight: 300;
   text-transform: uppercase;
 }
@@ -1670,3 +1669,10 @@ html.w-mod-js *[data-ix="opacity"] {
     margin-right: 25px;
     list-style: none;
 }
+
+
+/****Navbar issue fix******/
+  
+  .navbar > a[href="index.html"] {float:left;}
+  
+  /****Navbar issue fix******/
