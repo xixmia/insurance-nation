@@ -951,6 +951,12 @@ a.w--current {
   width: 100%;
   height: 75px;
 }
+
+.mapfre {
+  width: 100%;
+	height: auto;
+  padding-top: 35px;
+}
 .address {
   display: inline-block;
   width: 58%;
