@@ -20,6 +20,75 @@
   <script type="text/javascript" src="js/modernizr.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#submit_btn").click(function() { 
+       
+	    var proceed = true;
+        //simple validation at client's end
+        //loop through each field and we simply change border color to red for invalid fields		
+		$("#contact_form input[required=true], #contact_form textarea[required=true]").each(function(){
+			$(this).css('border-color',''); 
+			if(!$.trim($(this).val())){ //if this field is empty 
+				$(this).css('border-color','red'); //change border color to red   
+				proceed = false; //set do not proceed flag
+			}
+			//check invalid email
+			var email_reg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/; 
+			if($(this).attr("type")=="email" && !email_reg.test($.trim($(this).val()))){
+				$(this).css('border-color','red'); //change border color to red   
+				proceed = false; //set do not proceed flag				
+			}	
+		});
+       
+        if(proceed) //everything looks good! proceed...
+        {
+           //data to be sent to server         
+            var m_data = new FormData();    
+            m_data.append( 'user_name', $('input[name=name]').val());
+            m_data.append( 'user_email', $('input[name=email]').val());
+            m_data.append( 'user_address', $('input[name=address]').val());
+            m_data.append( 'user_zipcode', $('input[name=zip-code]').val());
+            //m_data.append( 'country_code', $('input[name=phone1]').val());
+            m_data.append( 'phone_number', $('input[name=phone]').val());
+            m_data.append( 'user_link', $('input[name=linkedin]').val());
+            m_data.append( 'file_attach', $('input[name=resume]')[0].files[0]);
+			 
+            //instead of $.post() we are using $.ajax()
+            //that's because $.ajax() has more options and flexibly.
+  			$.ajax({
+              url: 'contact_me.php',
+              data: m_data,
+              processData: false,
+              contentType: false,
+              type: 'POST',
+              dataType:'json',
+              success: function(response){
+                 //load json data from server and output message     
+ 				if(response.type == 'error'){ //load json data from server and output message     
+					output = '<div class="error">'+response.text+'</div>';
+				}else{
+				    //output = '<div class="success">'+response.text+'</div>';
+window.open ('thank-you.html','_self',false);
+
+				}
+				$("#contact_form #contact_results").hide().html(output).slideDown();
+}
+            });
+			
+
+        }
+    });
+    
+    //reset previously set border colors and hide all message on .keyup()
+    $("#contact_form  input[required=true], #contact_form textarea[required=true]").keyup(function() { 
+        $(this).css('border-color',''); 
+        $("#result").slideUp();
+    });
+});
+</script>
 </head>
 <body>
     <!-- Google Tag Manager -->
@@ -59,7 +128,7 @@
       <a class="w-inline-block" href="https://www.facebook.com/InsuranceNation" target="_blank">
         <img class="social-icons" width="50" src="images/facebook.jpg">
       </a>
-      <a class="w-inline-block" href="https://plus.google.com/107600550472200953812/about" target="_blank">
+      <a class="w-inline-block" href="https://plus.google.com/+InsuranceNationMiami/posts" target="_blank">
         <img class="social-icons" width="50" src="images/google.jpg">
       </a>
       <a class="w-inline-block" href="https://twitter.com/insurnation" target="_blank">
@@ -83,25 +152,30 @@
     <div class="w-clearfix content-wrapper"> 
       <div class="form-content job-form">
         <div class="w-form landing-form">
-          <form class="w-clearfix" id="wf-form-Careers-Form" name="wf-form-Careers-Form" data-name="Careers Form" data-redirect="/thank-you.html" action="https://getsimpleform.com/messages?form_api_token=79458a63ce640946e6f0fcf6788d23d4" method="post" enctype="multipart/form-data">
-            <h1 class="form-heading">Apply for a career</h1>
-            <input type='hidden' name='redirect_to' value='http://insurancenation.com/thank-you.html' />
-            <label for="name">Name:</label>
-            <input class="w-input" id="name" type="text" placeholder="Enter your name" name="name" data-name="Name" required="required">
-            <label class="zip-label" for="Zip-Code">Zip Code:</label>
-            <label class="address-label" for="Address">Address:</label>
-            <input class="w-input address" id="Address" type="text" placeholder="Enter your address" name="Address" data-name="Address" required="required">
-            <input class="w-input zip" id="Zip-Code" type="text" placeholder="Zip Code" name="Zip-Code" required="required" data-name="Zip Code">
-            <label for="Phone">Phone:</label>
-            <input class="w-input" id="Phone" type="text" placeholder="Enter your phone number" name="Phone" required="required" data-name="Phone">
-            <label for="Email">Email:</label>
-            <input class="w-input" id="Email" type="email" placeholder="Enter your email" name="Email" required="required" data-name="Email">
-            <label for="LinkedIn">LinkedIn URL:</label>
-            <input class="w-input" id="LinkedIn" type="text" placeholder="E.g. linkedin.com/in/jdoe" name="LinkedIn" data-name="LinkedIn">
-            <label for="Resume">Upload Your Resume</label>
-            <input class="w-input file" id="Resume" type="file" name="Resume" data-name="Resume">
-            <input class="w-button button home-cta form-btn" type="submit" value="Submit Application" data-wait="Please wait...">
-          </form>
+
+<div class="form-style" id="contact_form">
+    <h1 class="form-heading">Apply for a career</h1>
+    <div id="contact_results"></div>
+    <div id="contact_body">
+        <label for="name">Name:</label>
+        <input class="w-input" type="text" name="name" id="name" required="true" class="input-field" placeholder="Enter your name"/>
+        <label class="zip-label" for="Zip-Code">Zip Code:</label>
+        <label class="address-label" for="Address">Address:</label>
+        <input class="w-input address" id="Address" type="text" placeholder="Enter your address" name="address" required="required">
+        <input class="w-input zip" id="Zip-Code" type="text" placeholder="Zip Code" name="zip-code" required="required">
+        <label for="Phone">Phone:</label>
+        <input class="w-input" id="Phone" type="text" placeholder="Enter your phone number" name="phone" required="required">
+        <label for="Email">Email:</label>
+        <input class="w-input" id="Email" type="email" placeholder="Enter your email" name="email" required="required">
+        <label for="LinkedIn">LinkedIn URL:</label>
+        <input class="w-input" id="LinkedIn" type="text" placeholder="E.g. linkedin.com/in/jdoe" name="linkedin">
+        <label for="Resume">Upload Your Resume</label>
+        <input class="w-input file" id="Resume" type="file" name="resume">
+        <input class="w-button button home-cta form-btn" type="submit" value="Submit Application" id="submit_btn" >       
+    </div>
+</div>
+
+
           <div class="w-form-done">
             <p>Thank you! Your submission has been received!</p>
           </div>

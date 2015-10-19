@@ -801,7 +801,7 @@ a.w--current {
   background-color: #2185ff;
 }
 .dropdown {
-  z-index: 100;
+  z-index: 5;
   margin-right: 20px;
 }
 .dropdown.paymenty {
