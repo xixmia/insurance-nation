@@ -22,8 +22,7 @@ h2 {
   margin-top: 20px;
   margin-bottom: 10px;
   font-family: Lato, sans-serif;
-  font-size: 32px;
-  line-height: 36px;
+  font-size: 32px;line-height: 36px;
   font-weight: 300;
   text-transform: uppercase;
 }
@@ -560,6 +559,13 @@ a.w--current {
   padding-bottom: 70px;
   background-color: #f2f2f2;
 }
+
+.section.proof {
+  height: auto;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background-image: url(../images/Fotolia_85573738_Subscription_Monthly_M.jpg)
+}
 .section.location-list {
   height: auto;
   padding-top: 35px;
@@ -735,7 +741,7 @@ a.w--current {
 .landing-content {
   position: static;
   top: 35px;
-  width: 60%;
+  width: 80%;
   padding-right: 20px;
   padding-left: 20px;
   float: left;
@@ -760,6 +766,16 @@ a.w--current {
 .form-content {
   display: block;
   width: 330px;
+  padding: 20px;
+  float: right;
+  border-bottom: 2px solid #ccc;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 1px 25px 0px;
+}
+
+.form-content.proof {
+  display: block;
+  width: 400px;
   padding: 20px;
   float: right;
   border-bottom: 2px solid #ccc;
@@ -802,7 +818,7 @@ a.w--current {
   background-color: #2185ff;
 }
 .dropdown {
-  z-index: 100;
+  z-index: 5;
   margin-right: 20px;
 }
 .dropdown.paymenty {
@@ -951,6 +967,12 @@ a.w--current {
 .provider-logo {
   width: 100%;
   height: 75px;
+}
+
+.mapfre {
+  width: 100%;
+	height: auto;
+  padding-top: 35px;
 }
 .address {
   display: inline-block;
@@ -1670,3 +1692,10 @@ html.w-mod-js *[data-ix="opacity"] {
     margin-right: 25px;
     list-style: none;
 }
+
+
+/****Navbar issue fix******/
+  
+  .navbar > a[href="index.html"] {float:left;}
+  
+  /****Navbar issue fix******/

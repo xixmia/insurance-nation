@@ -1,0 +1,16 @@
+camerafollow=0
+camerasmartpan=1
+expansionlevel=
+mastervolume=0.747000
+music=0
+musicvolume=0.139000
+OptionRevisionAccount=5
+PreferredGameSite=US10
+profanityfilter=0
+quickcastmode=1
+simplecommandcard=0
+soundambience=0
+soundambiencevolume=0.623000
+soundeffectsvolume=0.735521
+subtitles=1
+winkeydisabled=1
