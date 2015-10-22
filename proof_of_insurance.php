@@ -1,7 +1,8 @@
 <?php
 if($_POST)
 {
-    $to_email       = "jobs@insurancenations.com,alejandro@insurancenation.com,aljure@insurancenations.com"; //Recipient email, Replace with own email here
+    $to_email       = "alejandro@insurancenation.com"; //Recipient email, Replace with own email here
+// $to_email       = "tushkine@gmail.com";
 	$from_email 	= "noreply@insurancenation.com"; //From email address (eg: no-reply@YOUR-DOMAIN.com)
 	
     //check if its an ajax request, exit if not
@@ -18,10 +19,10 @@ if($_POST)
     $user_email     = filter_var($_POST["user_email"], FILTER_SANITIZE_EMAIL);
     $user_zipcode   = filter_var($_POST["user_zipcode"], FILTER_SANITIZE_NUMBER_INT);
     $phone_number   = filter_var($_POST["phone_number"], FILTER_SANITIZE_NUMBER_INT);
-   // $subject        = filter_var($_POST["subject"], FILTER_SANITIZE_STRING);
+    $subject        = filter_var($_POST["subject"], FILTER_SANITIZE_STRING);
    // $message        = filter_var($_POST["msg"], FILTER_SANITIZE_STRING);
    $user_address   = filter_var($_POST["user_address"], FILTER_SANITIZE_STRING);
-   $user_link = filter_var($_POST["user_link"], FILTER_SANITIZE_STRING);
+   //$user_link = filter_var($_POST["user_link"], FILTER_SANITIZE_STRING);
 
     // additional php validation
     if(strlen($user_name)<4){ // If length is less than 4 it will output JSON error.
@@ -40,17 +41,17 @@ if($_POST)
         $output = json_encode(array('type'=>'error', 'text' => 'Enter only digits in phone number'));
         die($output);
     }
-   // if(strlen($subject)<3){ //check emtpy subject
-   //     $output = json_encode(array('type'=>'error', 'text' => 'Subject is required'));
-   //     die($output);
-   // }
+   if(strlen($subject)<3){ //check emtpy subject
+        $output = json_encode(array('type'=>'error', 'text' => 'Subject is required'));
+        die($output);
+    }
    // if(strlen($message)<3){ //check emtpy message
    //     $output = json_encode(array('type'=>'error', 'text' => 'Too short message! Please enter something.'));
    //     die($output);
    // }
    
     //email body
-    $message_body = $message."\n\n\nName : ".$user_name."\nEmail : ".$user_email."\nPhone Number :" .$phone_number."\nAddress :" .$user_address. "\nZip Code :" .$user_zipcode. "\nLinkedID :" .$user_link;
+    $message_body = $message."\n\n\nName : ".$user_name."\nEmail : ".$user_email."\nPhone Number :" .$phone_number."\nAddress :" .$user_address. "\nZip Code :" .$user_zipcode. "\nSubject :" .$subject;
 
 	### Attachment Preparation ###
 	$file_attached = false;

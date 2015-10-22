@@ -53,13 +53,14 @@ $(document).ready(function() {
             m_data.append( 'user_zipcode', $('input[name=zip-code]').val());
             //m_data.append( 'country_code', $('input[name=phone1]').val());
             m_data.append( 'phone_number', $('input[name=phone]').val());
-            m_data.append( 'user_link', $('input[name=linkedin]').val());
-            m_data.append( 'file_attach', $('input[name=resume]')[0].files[0]);
+            //m_data.append( 'user_link', $('input[name=linkedin]').val());
+            m_data.append( 'subject', $('select[name=subject]').val());
+		m_data.append( 'file_attach', $('input[name=resume]')[0].files[0]);
 			 
             //instead of $.post() we are using $.ajax()
             //that's because $.ajax() has more options and flexibly.
   			$.ajax({
-              url: 'contact_me.php',
+              url: 'proof_of_insurance.php',
               data: m_data,
               processData: false,
               contentType: false,
@@ -167,9 +168,18 @@ window.open ('thank-you.html','_self',false);
         <input class="w-input" id="Phone" type="text" placeholder="Enter your phone number" name="phone" required="required">
         <label for="Email">Email:</label>
         <input class="w-input" id="Email" type="email" placeholder="Enter your email" name="email" required="required">
-        <label for="LinkedIn">LinkedIn URL:</label>
-        <input class="w-input" id="LinkedIn" type="text" placeholder="E.g. linkedin.com/in/jdoe" name="linkedin">
-        <label for="Resume">Upload Your Resume</label>
+<!--        <label for="LinkedIn">LinkedIn URL:</label>
+      <input class="w-input" id="LinkedIn" type="text" placeholder="E.g. linkedin.com/in/jdoe" name="linkedin"> -->
+        <label for="subject"><span>Subject:</span>
+            <select name="subject" class="select-field w-input">
+            <option value="Home">Home</option>
+            <option value="Auto">Auto</option>
+            <option value="Condo">Condo</option>
+	    <option value="Certificate of Liability">Certificate of Liability</option>
+            </select>
+        </label>
+
+        <label for="Resume">Upload</label>
         <input class="w-input file" id="Resume" type="file" name="resume">
         <input class="w-button button home-cta form-btn" type="submit" value="Submit Application" id="submit_btn" >       
     </div>
