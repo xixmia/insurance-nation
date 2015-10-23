@@ -1,7 +1,7 @@
 <?php
 if($_POST)
 {
-    $to_email       = "jobs@insurancenations.com,alejandro@insurancenation.com,aljure@insurancenations.com"; //Recipient email, Replace with own email here
+    $to_email       = "jobs@insurancenation.com,alejandro@insurancenation.com,aljure@insurancenation.com"; //Recipient email, Replace with own email here
 	$from_email 	= "noreply@insurancenation.com"; //From email address (eg: no-reply@YOUR-DOMAIN.com)
 	
     //check if its an ajax request, exit if not
