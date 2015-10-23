@@ -1,7 +1,7 @@
 <?php
 if($_POST)
 {
-    $to_email       = "alejandro@insurancenation.com"; //Recipient email, Replace with own email here
+    $to_email       = "verifications@insurancenations.com,alejandro@insurancenation.com"; //Recipient email, Replace with own email here
 // $to_email       = "tushkine@gmail.com";
 	$from_email 	= "noreply@insurancenation.com"; //From email address (eg: no-reply@YOUR-DOMAIN.com)
 	
