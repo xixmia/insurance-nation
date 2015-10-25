@@ -564,7 +564,8 @@ a.w--current {
   height: auto;
   padding-top: 70px;
   padding-bottom: 70px;
-  background-image: url(../images/Fotolia_85573738_Subscription_Monthly_M.jpg)
+  background-image: url(../images/Fotolia_85573738_Subscription_Monthly_M.jpg);
+  background-size: cover;
 }
 .section.location-list {
   height: auto;
@@ -1083,13 +1084,19 @@ a.w--current {
   float: left;
 }
 .payment-cont {
-  width: 100%;
+  width: 48%;
+  float: left;
+  min-height: 300px;
+  margin: 0 10px 10px 0;
   padding-top: 10px;
   padding-bottom: 20px;
   background-color: rgba(0, 0, 0, 0.2);
 }
 .claims-cont {
-  margin: 35px 0 35px;
+    width: 48%;
+    float: left;
+    min-height: 300px;
+  margin: 35px 15px 35px;
   padding: 15px 0 20px;
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -1699,3 +1706,11 @@ html.w-mod-js *[data-ix="opacity"] {
   .navbar > a[href="index.html"] {float:left;}
   
   /****Navbar issue fix******/
+
+
+/***** Google Maps *******/
+.maps iframe{
+    pointer-events: none;
+}
+
+/********* Google Maps *****************/

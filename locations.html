@@ -20,6 +20,37 @@
   <script type="text/javascript" src="js/modernizr.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/favicon.ico">
   <link rel="apple-touch-icon" href="https://daks2k3a4ib2z.cloudfront.net/img/webclip.png">
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+<script type="text/javascript">//<![CDATA[
+$(window).load(function(){
+  // Disable scroll zooming and bind back the click event
+  var onMapMouseleaveHandler = function (event) {
+    var that = $(this);
+
+    that.on('click', onMapClickHandler);
+    that.off('mouseleave', onMapMouseleaveHandler);
+    that.find('iframe').css("pointer-events", "none");
+  }
+
+  var onMapClickHandler = function (event) {
+    var that = $(this);
+
+    // Disable the click handler until the user leaves the map area
+    that.off('click', onMapClickHandler);
+
+    // Enable scrolling zoom
+    that.find('iframe').css("pointer-events", "auto");
+
+    // Handle the mouse leave event
+    that.on('mouseleave', onMapMouseleaveHandler);
+  }
+
+  // Enable map zooming with mouse scroll when the user clicks the map
+  $('.maps.embed-container').on('click', onMapClickHandler);
+});//]]> 
+
+</script>
 </head>
 <body>
     <!-- Google Tag Manager -->
@@ -78,9 +109,9 @@
     </div>
   </div>
   <div class="w-section hero locations" id="home">
-    <div id="canvas1" class="w-embed w-iframe g-map">
-      <iframe src="https://www.google.com/maps/d/embed?mid=ziv9gifTIXNY.kNJKY7GjHVns" width="100%" height="480"></iframe>
-    </div>
+    <div id="canvas1" class="w-embed w-iframe g-map embed-container maps">
+        <iframe src="https://www.google.com/maps/d/embed?mid=ziv9gifTIXNY.kNJKY7GjHVns" width="100%" height="480"></iframe>
+</div>    
   </div>
   <div class="w-section section location-list lg">
     <div class="w-container">
@@ -153,11 +184,24 @@
           <a href="https://www.google.com/maps/dir//16150+Pines+Blvd,+Pembroke+Pines,+FL+33027/@26.006787,-80.3634915,17z/data=!4m13!1m4!3m3!1s0x88d9a6ab0c10c5f7:0xd4a112118950a804!2s16150+Pines+Blvd,+Pembroke+Pines,+FL+33027!3b1!4m7!1m0!1m5!1m1!1s0x88d9a6ab0c10c5f7:0xd4a112118950a804!2m2!1d-80.3634915!2d26.006787" target="_blank">Get Directions</a>
         </li>
         <li class="location">
+          <h4 class="loc-headers">Insurance Nation - Inside Subaru of Pembroke Pines</h4>
+          <div>16100 Pines Blvd.
+            <br>Pembroke Pines, FL 33027</div>
+          <a href="https://www.google.com/maps/dir//16100+Pines+Blvd,+Pembroke+Pines,+FL+33027/@26.006787,-80.3634915,17z/data=!4m13!1m4!3m3!1s0x88d9a6ab0c10c5f7:0xd4a112118950a804!2s16150+Pines+Blvd,+Pembroke+Pines,+FL+33027!3b1!4m7!1m0!1m5!1m1!1s0x88d9a6ab0c10c5f7:0xd4a112118950a804!2m2!1d-80.3634915!2d26.006787" target="_blank">Get Directions</a>
+        </li>
+        <li class="location">
           <h4 class="loc-headers">Insurance Nation - Inside Coral Springs Honda</h4>
           <div>9400 W. Atlantic Blvd.
             <br>Coral Springs, FL&nbsp;33071</div>
           <a href="https://www.google.com/maps/dir//9400+W+Atlantic+Blvd,+Coral+Springs,+FL+33071/@26.238614,-80.252725,17z/data=!4m13!1m4!3m3!1s0x88d9050d230f03c9:0x6e9470f32cf04dae!2s9400+W+Atlantic+Blvd,+Coral+Springs,+FL+33071!3b1!4m7!1m0!1m5!1m1!1s0x88d9050d230f03c9:0x6e9470f32cf04dae!2m2!1d-80.252725!2d26.238614" target="_blank">Get Directions</a>
         </li>
+        <li class="location">
+          <h4 class="loc-headers">Insurance Nation - Inside Coral Springs Kia</h4>
+          <div>9330 W. Atlantic Blvd.
+            <br>Coral Springs, FL&nbsp;33071</div>
+          <a href="https://www.google.com/maps/dir//9330+W+Atlantic+Blvd,+Coral+Springs,+FL+33071/@26.238614,-80.252725,17z/data=!4m13!1m4!3m3!1s0x88d9050d230f03c9:0x6e9470f32cf04dae!2s9330+W+Atlantic+Blvd,+Coral+Springs,+FL+33071!3b1!4m7!1m0!1m5!1m1!1s0x88d9050d230f03c9:0x6e9470f32cf04dae!2m2!1d-80.252725!2d26.238614" target="_blank">Get Directions</a>
+        </li>
+
 			<li class="location">
           <h4 class="loc-headers">Insurance Nation - Inside Hollywood Kia</h4>
           <div>6011 Pembroke Rd
