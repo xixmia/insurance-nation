@@ -794,6 +794,10 @@ a.w--current {
   text-shadow: black 0px 1px 10px;
 }
 
+h3.landing-copy {
+  margin-top: 30px;
+}
+
 .landing-ul {
     color: #fcfcfc;
     text-align: center;
